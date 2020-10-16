@@ -18,32 +18,32 @@
       "Storage",
       "new",
       "_pid",
-      "population_count",
-      "u256",
-      "n",
-      "is_address_zero",
-      "bool",
-      "a",
-      "address",
-      "score_card",
-      "c",
-      "set_card1",
-      "run_queue",
-      "u16",
-      "celcius2fahrenheit",
-      "celcius",
       "is_power_of_2",
-      "is_zombie_reaper",
-      "fahrenheit2celcius",
-      "fahrenheit",
-      "ace_of_spaces",
-      "reap_processes",
-      "systemd_pid",
-      "byte8reverse",
-      "input",
+      "bool",
+      "n",
+      "u256",
       "power",
       "base",
       "exp",
+      "fahrenheit2celcius",
+      "fahrenheit",
+      "ace_of_spaces",
+      "score_card",
+      "c",
+      "population_count",
+      "systemd_pid",
+      "run_queue",
+      "u16",
+      "reap_processes",
+      "is_zombie_reaper",
+      "byte8reverse",
+      "input",
+      "set_card1",
+      "is_address_zero",
+      "a",
+      "address",
+      "celcius2fahrenheit",
+      "celcius",
       "full_example"
     ],
     "types": [
@@ -117,35 +117,12 @@
         }
       },
       {
-        "id": "u256",
-        "def": "builtin"
-      },
-      {
         "id": "bool",
         "def": "builtin"
       },
       {
-        "id": "address",
+        "id": "u256",
         "def": "builtin"
-      },
-      {
-        "id": {
-          "custom.name": 13,
-          "custom.namespace": [],
-          "custom.params": []
-        },
-        "def": {
-          "struct.fields": [
-            {
-              "name": 11,
-              "type": 1
-            },
-            {
-              "name": 12,
-              "type": 1
-            }
-          ]
-        }
       },
       {
         "id": {
@@ -191,6 +168,13 @@
       },
       {
         "id": {
+          "array.len": 8,
+          "array.type": 1
+        },
+        "def": "builtin"
+      },
+      {
+        "id": {
           "custom.name": 13,
           "custom.namespace": [],
           "custom.params": []
@@ -210,9 +194,25 @@
       },
       {
         "id": {
-          "array.len": 8,
-          "array.type": 1
+          "custom.name": 13,
+          "custom.namespace": [],
+          "custom.params": []
         },
+        "def": {
+          "struct.fields": [
+            {
+              "name": 11,
+              "type": 1
+            },
+            {
+              "name": 12,
+              "type": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "address",
         "def": "builtin"
       }
     ]
@@ -293,18 +293,18 @@
     "messages": [
       {
         "name": 18,
-        "selector": "[\"0xF2\",\"0xC2\",\"0xAE\",\"0x5B\"]",
+        "selector": "[\"0x1D\",\"0x76\",\"0x3C\",\"0x2A\"]",
         "docs": [
-          "calculate the population count (number of set bits) using Brian Kerningham's way"
+          "is this number a power-of-two"
         ],
         "mutates": false,
         "args": [
           {
             "name": 20,
             "type": {
-              "ty": 7,
+              "ty": 8,
               "display_name": [
-                19
+                21
               ]
             }
           }
@@ -317,19 +317,28 @@
         }
       },
       {
-        "name": 21,
-        "selector": "[\"0x0C\",\"0xC0\",\"0xBF\",\"0x36\"]",
+        "name": 22,
+        "selector": "[\"0xC0\",\"0x4F\",\"0x01\",\"0xFC\"]",
         "docs": [
-          "returns true if the address is 0"
+          "calculate the power of base to exp"
         ],
         "mutates": false,
         "args": [
           {
             "name": 23,
             "type": {
-              "ty": 9,
+              "ty": 8,
               "display_name": [
-                24
+                21
+              ]
+            }
+          },
+          {
+            "name": 24,
+            "type": {
+              "ty": 8,
+              "display_name": [
+                21
               ]
             }
           }
@@ -337,12 +346,50 @@
         "return_type": {
           "ty": 8,
           "display_name": [
-            22
+            21
           ]
         }
       },
       {
         "name": 25,
+        "selector": "[\"0x92\",\"0xC9\",\"0x33\",\"0x74\"]",
+        "docs": [
+          "Convert fahrenheit to celcius"
+        ],
+        "mutates": false,
+        "args": [
+          {
+            "name": 26,
+            "type": {
+              "ty": 2,
+              "display_name": [
+                4
+              ]
+            }
+          }
+        ],
+        "return_type": {
+          "ty": 2,
+          "display_name": [
+            4
+          ]
+        }
+      },
+      {
+        "name": 27,
+        "selector": "[\"0x20\",\"0x66\",\"0x8B\",\"0x12\"]",
+        "docs": [
+          "return the ace of spades"
+        ],
+        "mutates": false,
+        "args": [],
+        "return_type": {
+          "ty": 9,
+          "display_name": []
+        }
+      },
+      {
+        "name": 28,
         "selector": "[\"0x3C\",\"0xB4\",\"0x79\",\"0x8F\"]",
         "docs": [
           "score card"
@@ -350,7 +397,7 @@
         "mutates": false,
         "args": [
           {
-            "name": 26,
+            "name": 29,
             "type": {
               "ty": 10,
               "display_name": []
@@ -365,76 +412,19 @@
         }
       },
       {
-        "name": 27,
-        "selector": "[\"0x62\",\"0x5D\",\"0xFD\",\"0xC3\"]",
-        "docs": [],
-        "mutates": true,
-        "args": [
-          {
-            "name": 26,
-            "type": {
-              "ty": 12,
-              "display_name": []
-            }
-          }
-        ],
-        "return_type": {
-          "ty": 11,
-          "display_name": []
-        }
-      },
-      {
-        "name": 28,
-        "selector": "[\"0x1F\",\"0xC4\",\"0xC0\",\"0x2D\"]",
-        "docs": [],
-        "mutates": false,
-        "args": [],
-        "return_type": {
-          "ty": 13,
-          "display_name": [
-            29
-          ]
-        }
-      },
-      {
         "name": 30,
-        "selector": "[\"0xE5\",\"0xA2\",\"0xA2\",\"0xD6\"]",
+        "selector": "[\"0xF2\",\"0xC2\",\"0xAE\",\"0x5B\"]",
         "docs": [
-          "Convert celcius to fahrenheit"
-        ],
-        "mutates": false,
-        "args": [
-          {
-            "name": 31,
-            "type": {
-              "ty": 2,
-              "display_name": [
-                4
-              ]
-            }
-          }
-        ],
-        "return_type": {
-          "ty": 2,
-          "display_name": [
-            4
-          ]
-        }
-      },
-      {
-        "name": 32,
-        "selector": "[\"0x1D\",\"0x76\",\"0x3C\",\"0x2A\"]",
-        "docs": [
-          "is this number a power-of-two"
+          "calculate the population count (number of set bits) using Brian Kerningham's way"
         ],
         "mutates": false,
         "args": [
           {
             "name": 20,
             "type": {
-              "ty": 7,
+              "ty": 8,
               "display_name": [
-                19
+                21
               ]
             }
           }
@@ -442,71 +432,12 @@
         "return_type": {
           "ty": 8,
           "display_name": [
-            22
+            21
           ]
         }
       },
       {
-        "name": 33,
-        "selector": "[\"0x0B\",\"0x3D\",\"0xC0\",\"0x27\"]",
-        "docs": [],
-        "mutates": false,
-        "args": [],
-        "return_type": {
-          "ty": 8,
-          "display_name": [
-            22
-          ]
-        }
-      },
-      {
-        "name": 34,
-        "selector": "[\"0x92\",\"0xC9\",\"0x33\",\"0x74\"]",
-        "docs": [
-          "Convert fahrenheit to celcius"
-        ],
-        "mutates": false,
-        "args": [
-          {
-            "name": 35,
-            "type": {
-              "ty": 2,
-              "display_name": [
-                4
-              ]
-            }
-          }
-        ],
-        "return_type": {
-          "ty": 2,
-          "display_name": [
-            4
-          ]
-        }
-      },
-      {
-        "name": 36,
-        "selector": "[\"0x20\",\"0x66\",\"0x8B\",\"0x12\"]",
-        "docs": [
-          "return the ace of spades"
-        ],
-        "mutates": false,
-        "args": [],
-        "return_type": {
-          "ty": 14,
-          "display_name": []
-        }
-      },
-      {
-        "name": 37,
-        "selector": "[\"0x24\",\"0x98\",\"0x6C\",\"0x6E\"]",
-        "docs": [],
-        "mutates": true,
-        "args": [],
-        "return_type": null
-      },
-      {
-        "name": 38,
+        "name": 31,
         "selector": "[\"0x17\",\"0x9D\",\"0xFF\",\"0xDF\"]",
         "docs": [],
         "mutates": false,
@@ -519,7 +450,41 @@
         }
       },
       {
-        "name": 39,
+        "name": 32,
+        "selector": "[\"0x1F\",\"0xC4\",\"0xC0\",\"0x2D\"]",
+        "docs": [],
+        "mutates": false,
+        "args": [],
+        "return_type": {
+          "ty": 11,
+          "display_name": [
+            33
+          ]
+        }
+      },
+      {
+        "name": 34,
+        "selector": "[\"0x24\",\"0x98\",\"0x6C\",\"0x6E\"]",
+        "docs": [],
+        "mutates": true,
+        "args": [],
+        "return_type": null
+      },
+      {
+        "name": 35,
+        "selector": "[\"0x0B\",\"0x3D\",\"0xC0\",\"0x27\"]",
+        "docs": [],
+        "mutates": false,
+        "args": [],
+        "return_type": {
+          "ty": 7,
+          "display_name": [
+            19
+          ]
+        }
+      },
+      {
+        "name": 36,
         "selector": "[\"0x35\",\"0x66\",\"0x7E\",\"0x73\"]",
         "docs": [
           "reverse the bytes in an array of 8 (endian swap)"
@@ -527,41 +492,51 @@
         "mutates": false,
         "args": [
           {
-            "name": 40,
+            "name": 37,
             "type": {
-              "ty": 15,
+              "ty": 12,
               "display_name": []
             }
           }
         ],
         "return_type": {
-          "ty": 15,
+          "ty": 12,
           "display_name": []
         }
       },
       {
-        "name": 41,
-        "selector": "[\"0xC0\",\"0x4F\",\"0x01\",\"0xFC\"]",
+        "name": 38,
+        "selector": "[\"0x62\",\"0x5D\",\"0xFD\",\"0xC3\"]",
+        "docs": [],
+        "mutates": true,
+        "args": [
+          {
+            "name": 29,
+            "type": {
+              "ty": 14,
+              "display_name": []
+            }
+          }
+        ],
+        "return_type": {
+          "ty": 13,
+          "display_name": []
+        }
+      },
+      {
+        "name": 39,
+        "selector": "[\"0x0C\",\"0xC0\",\"0xBF\",\"0x36\"]",
         "docs": [
-          "calculate the power of base to exp"
+          "returns true if the address is 0"
         ],
         "mutates": false,
         "args": [
           {
-            "name": 42,
+            "name": 40,
             "type": {
-              "ty": 7,
+              "ty": 15,
               "display_name": [
-                19
-              ]
-            }
-          },
-          {
-            "name": 43,
-            "type": {
-              "ty": 7,
-              "display_name": [
-                19
+                41
               ]
             }
           }
@@ -570,6 +545,31 @@
           "ty": 7,
           "display_name": [
             19
+          ]
+        }
+      },
+      {
+        "name": 42,
+        "selector": "[\"0xE5\",\"0xA2\",\"0xA2\",\"0xD6\"]",
+        "docs": [
+          "Convert celcius to fahrenheit"
+        ],
+        "mutates": false,
+        "args": [
+          {
+            "name": 43,
+            "type": {
+              "ty": 2,
+              "display_name": [
+                4
+              ]
+            }
+          }
+        ],
+        "return_type": {
+          "ty": 2,
+          "display_name": [
+            4
           ]
         }
       }
